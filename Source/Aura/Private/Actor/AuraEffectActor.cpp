@@ -28,8 +28,11 @@ void AAuraEffectActor::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActo
 	{
 		const UAuraAttributeSet* AuraAttributeSet =	Cast<UAuraAttributeSet>(ASCInterface->GetAbilitySystemComponent()->GetAttributeSet(UAuraAttributeSet::StaticClass()));
 		UAuraAttributeSet* MutableAuraAttributeSet = const_cast<UAuraAttributeSet*>(AuraAttributeSet);
-		if (AuraAttributeSet->GetHealth() == AuraAttributeSet->GetMaxHealth()) return;
-		MutableAuraAttributeSet->SetHealth(AuraAttributeSet->GetHealth() + 25.f);
+		//if (AuraAttributeSet->GetHealth() == AuraAttributeSet->GetMaxHealth()) return;
+		MutableAuraAttributeSet->SetHealth(AuraAttributeSet->GetHealth() - 25.f);
+		//if (AuraAttributeSet->GetMana() == AuraAttributeSet->GetMaxMana()) return;
+		MutableAuraAttributeSet->SetMana(AuraAttributeSet->GetMana() + 25.f);
+		MutableAuraAttributeSet->SetEnergy(AuraAttributeSet->GetEnergy() + 50.f);
 		Destroy();
 	}
 }
