@@ -1,4 +1,4 @@
-Binaries
+ Binaries
 DerivedDataCache
 Intermediate
 Saved
@@ -13,4 +13,5 @@ Build
 *.suo
 *.xcodeproj
 *.xcworkspace
-Content/assest/
+Content/Assets/
+

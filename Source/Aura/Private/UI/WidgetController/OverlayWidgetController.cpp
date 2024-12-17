@@ -3,6 +3,7 @@
 
 #include "UI/WidgetController/OverlayWidgetController.h"
 
+#include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "AbilitySystem/AuraAttributeSet.h"
 
 void UOverlayWidgetController::BroadcastInitialValues()
@@ -51,6 +52,17 @@ AuraAttributeSet->GetEnergyAttribute()).AddUObject(this,
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 AuraAttributeSet->GetMaxEnergyAttribute()).AddUObject(this,
 	&UOverlayWidgetController::MaxEnergyChanges
+	);
+
+	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetsTags.AddLambda(
+		[](const FGameplayTagContainer& AssetTags)
+		{
+			for (const FGameplayTag& Tag : AssetTags)
+			{
+				const FString Msg = FString::Printf(TEXT("GE Tag: %s"), *Tag.ToString());
+				GEngine->AddOnScreenDebugMessage(-1, 8.f, FColor::Blue, Msg);
+			}
+		}
 	);
 }
 

@@ -30,6 +30,6 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UCameraComponent> Camera;
 
-	void InitAbilityActorInfo();
+	virtual void InitAbilityActorInfo() override;
 	
 };
