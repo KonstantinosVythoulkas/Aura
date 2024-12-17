@@ -64,32 +64,15 @@ protected:
 	void OnEndOverlap(AActor* TargetActor);
 	
 	
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	TSubclassOf<UGameplayEffect> InstanceGameplayEffectClass;
 
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	EEffectApplicationPolicy InstanceEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
-
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
-
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
-
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
-
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	EEffectApplicationPolicy InfiniteEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
-
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
-	EEffectRemovePolicy InfiniteEffectRemovePolicy = EEffectRemovePolicy::RemoveOnEndOverlap;
 
 	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Applied Effects")
 	TArray<FEffectType> Effects;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Applied Effects")
+	float ActorLevel = 1.0f;
 
 
 };
