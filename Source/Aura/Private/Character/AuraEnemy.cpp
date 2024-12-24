@@ -33,6 +33,11 @@ void AAuraEnemy::UnHighLightActor()
 	
 }
 
+int32 AAuraEnemy::GetPlayerLevel()
+{
+	return Level;
+}
+
 void AAuraEnemy::BeginPlay()
 {
 	Super::BeginPlay();
