@@ -12,6 +12,16 @@
 	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+
+
+//DECLARE_DELEGATE_RetVal(FGameplayAttribute, FAttributeSignature);
+
+//typedef TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FAttributeFuncPtr;
+
+template<class T>
+using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T, FDefaultDelegateUserPolicy>::FFuncPtr;
+
+
 /**
  * 
  */
@@ -61,6 +71,9 @@ class AURA_API UAuraAttributeSet : public UAttributeSet
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 	virtual void PostGameplayEffectExecute(const  FGameplayEffectModCallbackData& Data) override;
 
+	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAttributes;
+
+
 
 /**
  * Secondary Attributes
@@ -100,9 +113,9 @@ class AURA_API UAuraAttributeSet : public UAttributeSet
 	* Primary Attributes
 	*/
 
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Strenght, Category = "Primary Attributes")
-	FGameplayAttributeData Strenght;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strenght);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Strength, Category = "Primary Attributes")
+	FGameplayAttributeData Strength;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strength);
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Intelligence, Category = "Primary Attributes")
 	FGameplayAttributeData Intelligence;
@@ -163,7 +176,7 @@ class AURA_API UAuraAttributeSet : public UAttributeSet
 	UFUNCTION()
 	void OnRep_MaxEnergy(const FGameplayAttributeData& OldMaxEnergy) const;
 	UFUNCTION()
-	void OnRep_Strenght(const FGameplayAttributeData& OldStrenght) const;
+	void OnRep_Strength(const FGameplayAttributeData& OldStrength) const;
 	UFUNCTION()
 	void OnRep_Intelligence(const FGameplayAttributeData& OldIntelligence) const;
 	UFUNCTION()

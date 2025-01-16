@@ -79,4 +79,37 @@ FString("Maximum amount of Mana obtainable"));
 	GameplayTags.Attributes_Secondary_MaxEnergy = UGameplayTagsManager::Get().AddNativeGameplayTag(
 	FName("Attribute.Secondary.MaxEnergy"),
 FString("Maximum amount of Energy obtainable"));
+
+	// Input Attributes
+	GameplayTags.InputTag_LMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.LMB"),
+		FString("Input Tag for left Mouse Button"));
+	
+	GameplayTags.InputTag_RMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.RMB"),
+	FString("Input Tag for right Mouse Button"));
+
+	GameplayTags.InputTag_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.1"),
+	FString("Input Tag for Key 1 Button"));
+
+	GameplayTags.InputTag_2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.2"),
+FString("Input Tag for Key 2 Button"));
+
+	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.3"),
+FString("Input Tag for Key 3 Button"));
+
+	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.4"),
+FString("Input Tag for Key 4 Button"));
+
+	GameplayTags.InputTag_5 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.5"),
+FString("Input Tag for Key 5 Button"));
+
+	GameplayTags.InputTag_Q = UGameplayTagsManager::Get().AddNativeGameplayTag(
+	FName("InputTag.Q"),
+FString("Input Tag for Key Q Button"));
 }
